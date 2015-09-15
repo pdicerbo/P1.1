@@ -1,0 +1,3 @@
+ls -altr ~ | sed /^[d,t,l]/d | head -3
+
+ls -lR --full-time / | sed /^[d,t,l,/]/d | awk '{print $5, $9}' | sort -nr | head -3 | awk '{print $2}'
