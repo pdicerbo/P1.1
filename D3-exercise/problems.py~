@@ -1,5 +1,0 @@
-
-def starting():
-    """This function allow to choose the number of the problem to solve"""
-    print("\n\tEnter number problem:\n")
-    print()
