@@ -61,5 +61,28 @@ def fibo():
     
     print('\n\tThe sum result is: ' + str(fibo_sum))    
     
+def largest():
+    """Calculate the largest prime factor of a given number"""
+    number = 600851475143
+    prime_factor = [1,]
+    pf = 2
 
+    while pf < number:
+        if number % pf == 0:
+            ctrl = 0
+            """I need to do this control in order to don't 
+            take multiples of prime factors already teaken"""
+            if len(prime_factor) > 1:
+                for prime_num in prime_factor:
+                    if pf % prime_num == 0:
+                        ctrl += 1
+            if ctrl == 0:
+                prime_factor.append(pf)
+        else:
+            pass
+        pf += 1
+
+    print("\n\tThe largest prime factor of "+str(number)+ " is "+ str(prime_factor[-1]))
+        
+    
 starting()
