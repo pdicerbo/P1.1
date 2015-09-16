@@ -23,7 +23,6 @@ def multiple():
     """Calculate the sum of all multiple numbers of 3 and 5 between 0 and 1000"""
 
     multiples = []
-    
     for j in range(0,1001):
         if j % 3 == 0:
             multiples.append(j)
@@ -33,10 +32,34 @@ def multiple():
             pass
 
     multi_sum = 0
-        
     for j in multiples:
         multi_sum += j
 
     print('\n\tThe sum result is: ' + str(multi_sum))    
     
+
+def fibo():
+    """Calculate the sum of the even terms of the Fibonacci series that don't exceed 4.e6"""
+
+    fibo_series = [1, 2]
+    j = 2; n_term = 3; n_minus_one_term = 2
+
+    while n_term < 4e6:
+        fibo_series.append(n_term)
+        n_temp = n_term
+        n_term += n_minus_one_term
+        n_minus_one_term = n_temp
+
+    fibo_series.append(n_term)
+    print(fibo_series)
+    fibo_sum = 0
+    for term in fibo_series:
+        if term % 2 == 0:
+            fibo_sum += term
+        else:
+            pass
+    
+    print('\n\tThe sum result is: ' + str(fibo_sum))    
+    
+
 starting()
