@@ -4,7 +4,7 @@ def starting():
     num = 1
 
     options = {1:'multiple', 2:'fibo', 3:'largest'} 
-    while num in range(1,3):
+    while num in range(1,4):
         print("\n\tEnter number problem:\n")
         print("\t1. Multiple of 3 and 5\n")
         print("\t2. Even Fibonacci Numbers\n")
@@ -64,25 +64,34 @@ def fibo():
 def largest():
     """Calculate the largest prime factor of a given number"""
     number = 600851475143
-    prime_factor = [1,]
+    original_number = 600851475143
+    prime_factor = []
     pf = 2
 
-    while pf < number:
+    while pf <= number:
         if number % pf == 0:
             ctrl = 0
             """I need to do this control in order to don't 
             take multiples of prime factors already teaken"""
-            if len(prime_factor) > 1:
-                for prime_num in prime_factor:
-                    if pf % prime_num == 0:
-                        ctrl += 1
+            for prime_num in prime_factor:
+                if pf % prime_num == 0:
+                    print(prime_num, pf)
+                    ctrl += 1
+                    break
             if ctrl == 0:
                 prime_factor.append(pf)
+                print("\tFind this prime factor: %d" % pf)
+                number /= pf
         else:
             pass
         pf += 1
 
-    print("\n\tThe largest prime factor of "+str(number)+ " is "+ str(prime_factor[-1]))
+    print("\n\tThe largest prime factor of "+str(original_number)+ " is "+ str(prime_factor[-1]) + ";")
+    print("\n\tControl:\n")
+    prod_ctrl = 1
+    for ctrl in prime_factor:
+        prod_ctrl *= ctrl
+        print("\t%d\t%d\n"%(prod_ctrl, ctrl))
         
     
 starting()
