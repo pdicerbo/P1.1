@@ -1,15 +1,16 @@
-
 def starting():
     """Allow to choose the number of the problem to solve"""
     num = 1
 
-    options = {1:'multiple', 2:'fibo', 3:'largest'} 
-    while num in range(1,4):
+    options = {1:'multiple', 2:'fibo', 3:'largest', 4:'collatz'} 
+    while num in range(1,5):
         print("\n\tEnter number problem:\n")
         print("\t1. Multiple of 3 and 5\n")
         print("\t2. Even Fibonacci Numbers\n")
-        print("\t3. Largest prime factor")
-        num = int(input('\n  -->\t'))
+        print("\t3. Largest prime factor\n")
+        print("\t4. Collatz sequence\n")
+        print("\tAny other to exit\n")
+        num = int(input('  -->\t'))
         if num in list(options.keys()):
             eval(options[num])()
         else:
@@ -93,5 +94,33 @@ def largest():
         prod_ctrl *= ctrl
         print("\t%d\t%d\n"%(prod_ctrl, ctrl))
         
+def collatz():
+    """Find the number that generate the longest collatz sequence"""
+    max_seed = 2; longest = 0;
+    seed = 2; tmp_count = 0
+
+    while seed < 1e6:
+        tmp_count = gen_coll(seed, tmp_count)
+        
+        if tmp_count > longest:
+            max_seed = seed
+            longest = tmp_count
+        seed += 1
+        tmp_count = 0
+        
+    print("\n\tThe number that generate the longest collatz sequence is %d\n"%max_seed)
+    print("\tThe sequence have %d step\n"%longest)
     
+def gen_coll(el, count):
+    """Return the lenght of the collatz sequence starting from el"""
+    if el == 1:
+        count += 1
+        return count
+    elif el % 2 == 0:
+        count += 1
+        return gen_coll(el/2, count)
+    else:
+        count += 1
+        return gen_coll(3*el + 1, count)
+
 starting()
