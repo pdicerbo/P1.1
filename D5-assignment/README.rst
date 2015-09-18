@@ -4,9 +4,7 @@ Gravity simulation
 Physics background
 ==================
 
-(see blackboard, will be added here after the discussion)
-
-
+*is available in* ``sphinxdoc/index.rst`` *or compiled as* ``sphinxdoc/MHPC2015-Pythonassignment.pdf``
 
 Tasks
 =====
