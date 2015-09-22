@@ -123,4 +123,19 @@ def gen_coll(el, count):
         count += 1
         return gen_coll(3*el + 1, count)
 
+def letter_count():
+    units = {0:0, 1:3, 2:3, 3:5, 4:4, 5:4, 6:3, 7:5, 8:5, 9:4}
+    tens  = {0:0, 1:3, 2:6, 3:6, 4:5, 5:5, 6:5, 7:7, 8:6, 9:5}
+
+    unit = 1; sec = 0; hundr = 0; effective_num = 1;
+    letter_count = 0
+    
+    while effective_num < 1e6:
+        let_tmp = units[unit]
+        let_tmp += tens[sec]
+        if hundr > 0:
+            let_tmp += units[hundr] + 10 #10 is the number of letters in "hundred and"
+        
+
+    
 starting()
