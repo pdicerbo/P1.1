@@ -46,8 +46,8 @@ int main(){
 
 
     printf(" size of int %ld and int* %ld\n", sizeof(int), sizeof(int*));
-    printf(" address of a[0][0]: %p | address of a[0][1]: %p. Distance is %ld bytes and should be %ld bytes \n",&a[0][0], &a[1][0], (&a[0][1]-&a[0][0])*sizeof(int), sizeof(int));
-    printf(" address of b[0][0]: %p | address of b[0][1]: %p. Distance is %ld bytes and should be %ld bytes \n",&b[0][0], &b[1][0], (&b[0][1]-&b[0][0])*sizeof(int), sizeof(int));
+    printf(" address of a[0][0]: %p | address of a[0][1]: %p. Distance is %ld bytes and should be %ld bytes \n",&a[0][0], &a[0][1], (&a[0][1]-&a[0][0])*sizeof(int), sizeof(int));
+    printf(" address of b[0][0]: %p | address of b[0][1]: %p. Distance is %ld bytes and should be %ld bytes \n",&b[0][0], &b[0][1], (&b[0][1]-&b[0][0])*sizeof(int), sizeof(int));
     printf(" address of a[0][0]: %p | address of a[1][0]: %p. Distance is %ld bytes and should be %ld bytes \n",&a[0][0], &a[1][0], (&a[1][0]-&a[0][0])*sizeof(int), m*sizeof(int));
     printf(" address of b[0][0]: %p | address of b[1][0]: %p. Distance is %ld bytes and should be %ld bytes \n",&b[0][0], &b[1][0], (&b[1][0]-&b[0][0])*sizeof(int), m*sizeof(int));
     printf(" b[0][3]= %d b[1][1]= %d \n", b[0][3], b[1][1]);
