@@ -1,0 +1,11 @@
+&person
+
+	name = 'Giuseppe',
+	surname = 'Brandino',
+	age = 21,
+/
+&pet
+	species = 'Dog',
+	name = 'Tata',
+	age = 5,
+/
