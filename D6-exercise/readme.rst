@@ -1,4 +1,4 @@
-D6-exericise
+D6-exercise
 ============
 
 1. Write a c code that computes a matrix-matrix multiplication.
