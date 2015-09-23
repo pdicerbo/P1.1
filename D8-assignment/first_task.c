@@ -3,7 +3,7 @@
 
 void initialize_matrix(int*, int, int, int*);
 void print_matrix(int*, int, int);
-int* transpose_matrix(int*, int*, int, int);
+void transpose_matrix(int*, int*, int, int);
 
 int main(){
 
@@ -32,8 +32,8 @@ int main(){
   BT = (int* )malloc(row_b * col_b * sizeof(int));
   CT = (int* )malloc(row_a * col_b * sizeof(int));  
 
-  AT = transpose_matrix(A, AT, row_a, col_a);
-  BT = transpose_matrix(B, BT, row_b, col_b);
+  transpose_matrix(A, AT, row_a, col_a);
+  transpose_matrix(B, BT, row_b, col_b);
 
   printf("\nPrinting transpose matrix\n");
   print_matrix(AT, col_a, row_a);
@@ -42,7 +42,7 @@ int main(){
   printf("\nMaking product\n");
   mat_product_(AT, BT, CT, &row_a, &col_a, &col_b);
   printf("\nProduct done\n");  
-  C = transpose_matrix(CT, C, col_b, row_a);
+  transpose_matrix(CT, C, col_b, row_a);
   printf("\nTranspose result");
   print_matrix(C, row_a, col_b);
 
@@ -78,12 +78,11 @@ void print_matrix(int* matrix, int nr, int nc){
   }
 }
 
-int* transpose_matrix(int* matrix, int* transp, int nr, int nc){
+void transpose_matrix(int* matrix, int* transp, int nr, int nc){
   int i, j;
   for(i = 0; i < nr; i++){
     for(j = 0; j < nc; j++){
       transp[j*nr + i] = matrix[i*nc + j];
     }
   }
-  return transp;
 }
