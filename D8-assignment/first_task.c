@@ -40,7 +40,7 @@ int main(){
   print_matrix(BT, col_b, row_b);
 
   printf("\nMaking product\n");
-  mat_product_(AT, BT, CT, row_a, col_a, col_b);
+  mat_product_(AT, BT, CT, &row_a, &col_a, &col_b);
   printf("\nProduct done\n");  
   C = transpose_matrix(CT, C, col_b, row_a);
   printf("\nTranspose result");
