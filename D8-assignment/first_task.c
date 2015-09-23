@@ -3,6 +3,7 @@
 
 void initialize_matrix(int*, int, int, int*);
 void print_matrix(int*, int, int);
+
 int main(){
 
   int *A, *B, *C;
@@ -20,8 +21,8 @@ int main(){
   C = (int* )malloc(row_a * col_b * sizeof(int));
 
   initialize_matrix(A, row_a, col_a, &count);
-  initialize_matrix(B, row_b, col_b, &count);
   print_matrix(A, row_a, col_a);
+  initialize_matrix(B, row_b, col_b, &count);
   print_matrix(B, row_b, col_b);
 
   return 0;
@@ -32,8 +33,8 @@ void initialize_matrix(int* matrix, int nr, int nc, int* count){
   tmp = *count;
   for(i = 0; i < nr; i++){
     for(j = 0; j < nc; j++){
-      matrix[i*nr + j] = tmp;
-      printf("\t%d\t%d\t%d\n", i, j, tmp);
+      matrix[i*nc + j] = tmp;
+      /* printf("\t%d\t%d\t%d\n", i, j, tmp); */
       tmp += 1;
     }
   }
@@ -45,7 +46,7 @@ void print_matrix(int* matrix, int nr, int nc){
   printf("\n\tPrinting matrix:\n");
   for(i = 0; i < nr; i++){
     for(j = 0; j < nc; j++)
-      printf("\t%d", matrix[i*nr + j]);
+      printf("\t%d", matrix[i*nc + j]);
     printf("\n");
   }
 }
