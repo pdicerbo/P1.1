@@ -14,9 +14,9 @@ int main(){
 
   /* initializing matrix dimension */  
   row_a = 2;
-  col_a = 2;
+  col_a = 3;
   row_b = col_a;
-  col_b = 2;
+  col_b = 5;
 
   A = (int* )malloc(row_a * col_a * sizeof(int));
   B = (int* )malloc(row_b * col_b * sizeof(int));
@@ -45,7 +45,13 @@ int main(){
   C = transpose_matrix(CT, C, col_b, row_a);
   printf("\nTranspose result");
   print_matrix(C, row_a, col_b);
-  
+
+  free(A);
+  free(B);
+  free(C);
+  free(AT);
+  free(BT);
+  free(CT);
   return 0;
 }
 
