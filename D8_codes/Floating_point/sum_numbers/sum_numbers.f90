@@ -37,7 +37,7 @@
    end do 
    k=nsteps
    gauss_formula_float=(real(k)*real(k+1))/2.0 
-   gauss_formula_int  =(k*(k+1))/2.0 
+   gauss_formula_int  =(k*(k+1))/2 
     write(*,'(a,i20,g25.15)') '#the mathematical correct result:[n(n+1)/2*]=',gauss_formula_int,gauss_formula_float
     print*,'#summing integers:'
     write(*,'(a,g25.15,a,i20)') '#direct=', i_dir,'reverse=',i_rev
