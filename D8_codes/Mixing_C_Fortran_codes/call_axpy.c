@@ -25,5 +25,4 @@ int main(){
       {
       printf(" %d | ",c[i]);
       }    
-
 }

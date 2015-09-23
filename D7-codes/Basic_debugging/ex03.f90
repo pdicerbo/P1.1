@@ -15,14 +15,14 @@ PROGRAM to_be_improved
   sb=dasum(4*n*m,b,1)
   PRINT*, 'sum0: a = ', sa, '  b = ', sb
   CALL cpu_time(t1)
-  DO I=1, 1010
-     DO J=1, 1010
+  DO I=1, 1000
+     DO J=1, 1000
         A(I,J) = I + J
      ENDDO
   ENDDO
   sa=dasum(n*m,a,1)
-  DO I=1, 1010
-     DO J=1, 1010
+  DO I=1, 2000
+     DO J=1, 2000
         B(I,J) = I - J
      ENDDO
   ENDDO
@@ -31,14 +31,14 @@ PROGRAM to_be_improved
 
   CALL azzero(a,n*m)
   CALL azzero(b,4*n*m)
-  DO I=1, 1010
-     DO J=1, 1010
+  DO I=1, 2000
+     DO J=1, 2000
         B(I,J) = I - J
      ENDDO
   ENDDO
   sb=dasum(4*n*m,b,1)
-  DO I=1, 1010
-     DO J=1, 1010
+  DO I=1, 1000
+     DO J=1, 1000
         A(I,J) = I + J
      ENDDO
   ENDDO
