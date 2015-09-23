@@ -1,7 +1,7 @@
 subroutine mat_product(A, B, C, nr_a, nc_a, nc_b)
-  integer, dimension(nr_a*nc_a), intent(in) :: A
-  integer, dimension(nc_a*nc_b), intent(in) :: B
-  integer, dimension(nr_a*nc_b), intent(in) :: B
+  integer, intent(in) :: A(nr_a, nc_a)
+  integer, intent(in) :: B(nc_a, nc_b)
+  integer, intent(out) :: C(nr_a, nc_b)
   integer :: nr_a, nc_a, nc_b
 
   integer :: i, j, k
