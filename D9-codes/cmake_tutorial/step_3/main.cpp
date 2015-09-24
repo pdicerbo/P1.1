@@ -3,7 +3,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include "TutorialConfig.h"
+#ifdef USE_MYMATH
 #include "MathFuncs.h"
+#endif
 
 void print_version( char *argv[])
 {
@@ -25,7 +27,14 @@ int main (int argc, char *argv[])
     return 1;
     }
   double inputValue = atof(argv[1]);
-  double outputValue = mysqrt(inputValue);
+  #ifdef USE_MYMATH
+    fprintf(stdout, "mysqrt\n");
+    double outputValue = mysqrt(inputValue);
+  #else
+    fprintf(stdout, "sqrt\n");
+    double outputValue = sqrt(inputValue);
+  #endif
+
   fprintf(stdout,"The square root of %g is %g\n",
           inputValue, outputValue);
   return 0;
