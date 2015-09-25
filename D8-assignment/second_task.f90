@@ -37,13 +37,20 @@ program second_task
   end do
 
   call mm_multiply(c_loc(A), c_loc(B), c_loc(C), row_a, col_a, col_b);
-  
+  write(*,*)
+  write(*,*) "Printing first matrix:"
   print*, A
+  write(*,*)
+  write(*,*) "Printing second matrix:"
   print*, B
+  write(*,*)
+  write(*,*) "Printing product matrix:"
   print*, C
 
+  write(*,*)
   write(*,*) "Performing matrix matrix multiplication with blas routine"
-  
+  write(*,*) "Printing result:"  
+
   call dgemm('n', 'n', row_a, col_b, col_a, 1.0d+0, A, row_a, B, row_b, 0.0d+0, C, row_a)
   print*, C
 

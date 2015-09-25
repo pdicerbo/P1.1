@@ -1,3 +1,4 @@
+/* Perform matrix matrix multiplication calling fortran routine */
 #include <stdio.h>
 #include <stdlib.h>
 #include "cblas.h"
@@ -37,8 +38,6 @@ int main(){
   transpose_matrix(A, AT, row_a, col_a);
   transpose_matrix(B, BT, row_b, col_b);
 
-  printf("\nMaking product");
-
   /* CALLING FORTRAN ROUTINE */
   mat_product_(AT, BT, CT, &row_a, &col_a, &col_b);
 
@@ -50,7 +49,7 @@ int main(){
 
   cblas_dgemm(101, 111, 111, row_a, col_b, col_a, 1., A, col_a, B, col_b, 0., C, col_b);
 
-  printf("\n\tPRINTING BLAS MATRIX\n");
+  printf("\n\tUsing CBLAS library");
   print_matrix(C, row_a, col_b);
   
   free(A);
@@ -86,6 +85,7 @@ void print_matrix(double* matrix, int nr, int nc){
   }
 }
 
+/* Perform matrix transposition  */
 void transpose_matrix(double* matrix, double* transp, int nr, int nc){
   int i, j;
   for(i = 0; i < nr; i++){
