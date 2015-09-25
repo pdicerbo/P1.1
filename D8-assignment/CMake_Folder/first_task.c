@@ -48,7 +48,7 @@ int main(){
 
   cblas_dgemm(101, 111, 111, row_a, col_b, col_a, 1., A, col_a, B, col_b, 0., C, col_b);
 
-  printf("\n\tPRINTING BLAS MATRIX\n");
+  printf("\n\tUsing CBLAS library");
   print_matrix(C, row_a, col_b);
   
   free(A);
