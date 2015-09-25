@@ -2,18 +2,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void transpose_matrix(int*, int*, int, int);
+void transpose_matrix(double*, double*, int, int);
 
-void mm_multiply(int* A, int* B, int* C, int nr_a, int nc_a, int nc_b){
+void mm_multiply(double* A, double* B, double* C, int nr_a, int nc_a, int nc_b){
 
-  int *A_True, *B_True, *C_True;
+  double *A_True, *B_True, *C_True;
   int i, j, k;
-  int tmp_sum = 0;
+  double tmp_sum = 0;
   int nr_b = nc_a;
   
-  A_True = (int* )malloc(nr_a * nc_a * sizeof(int));
-  B_True = (int* )malloc(nr_b * nc_b * sizeof(int));
-  C_True = (int* )malloc(nr_a * nc_b * sizeof(int));
+  A_True = (double* )malloc(nr_a * nc_a * sizeof(double));
+  B_True = (double* )malloc(nr_b * nc_b * sizeof(double));
+  C_True = (double* )malloc(nr_a * nc_b * sizeof(double));
   
   transpose_matrix(A, A_True, nc_a, nr_a);
   transpose_matrix(B, B_True, nc_b, nr_b);
@@ -30,7 +30,7 @@ void mm_multiply(int* A, int* B, int* C, int nr_a, int nc_a, int nc_b){
   transpose_matrix(C_True, C, nr_a, nc_b);
 }
 
-void transpose_matrix(int* matrix, int* transp, int nr, int nc){
+void transpose_matrix(double* matrix, double* transp, int nr, int nc){
   int i, j;
   /* putting the (i, j) element of matrix in (j, i) element of transp */
   for(i = 0; i < nr; i++){

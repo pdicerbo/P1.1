@@ -1,11 +1,11 @@
 subroutine mat_product(A, B, C, nr_a, nc_a, nc_b)
-  integer, intent(in) :: A(nr_a, nc_a)
-  integer, intent(in) :: B(nc_a, nc_b)
-  integer, intent(out) :: C(nr_a, nc_b)
+  real(8), intent(in) :: A(nr_a, nc_a)
+  real(8), intent(in) :: B(nc_a, nc_b)
+  real(8), intent(out) :: C(nr_a, nc_b)
   integer :: nr_a, nc_a, nc_b
 
   integer :: i, j, k
-  integer :: tmp_sum = 0
+  real(8) :: tmp_sum = 0
 
   do j = 1, nc_b
      do i = 1, nr_a

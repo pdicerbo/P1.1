@@ -10,7 +10,7 @@ SECOND_OBJS = second_task.o cfunc.o
 
 EX = first_task.x second_task.x
 
-.PHONY : all clean info
+.PHONY : all clean info debug
 
 all: $(EX)
 
