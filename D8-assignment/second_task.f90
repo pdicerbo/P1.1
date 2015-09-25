@@ -1,3 +1,4 @@
+! Perform matrix matrix multiplication calling C routine
 program second_task
   use iso_c_binding
   implicit none
@@ -36,6 +37,7 @@ program second_task
      end do
   end do
 
+  ! CALLING C ROUTINE
   call mm_multiply(c_loc(A), c_loc(B), c_loc(C), row_a, col_a, col_b);
   write(*,*)
   write(*,*) "Printing first matrix:"

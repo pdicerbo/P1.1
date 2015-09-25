@@ -1,3 +1,4 @@
+! Perform matrix matrix multiplication
 subroutine mat_product(A, B, C, nr_a, nc_a, nc_b)
   real(8), intent(in) :: A(nr_a, nc_a)
   real(8), intent(in) :: B(nc_a, nc_b)

@@ -1,4 +1,4 @@
-/* functions that perform C-version of matrix matrix multiplication */
+/* perform C-version of matrix matrix multiplication */
 #include <stdio.h>
 #include <stdlib.h>
 
