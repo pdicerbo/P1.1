@@ -1,3 +1,5 @@
+/* functions that perform C-version of matrix matrix multiplication */
+#include <stdio.h>
 #include <stdlib.h>
 
 void transpose_matrix(int*, int*, int, int);
@@ -15,19 +17,22 @@ void mm_multiply(int* A, int* B, int* C, int nr_a, int nc_a, int nc_b){
   
   transpose_matrix(A, A_True, nc_a, nr_a);
   transpose_matrix(B, B_True, nc_b, nr_b);
-  
+
   for(i = 0; i < nr_a; i++){
     for(j = 0; j < nc_b; j++){
       for(k = 0; k < nc_a; k++){
 	tmp_sum += A_True[i*nc_a + k] * B_True[k * nc_b + j];
       }
       C_True[i*nc_b + j] = tmp_sum;
+      tmp_sum = 0;
     }
   }
+  transpose_matrix(C_True, C, nr_a, nc_b);
 }
 
 void transpose_matrix(int* matrix, int* transp, int nr, int nc){
   int i, j;
+  /* putting the (i, j) element of matrix in (j, i) element of transp */
   for(i = 0; i < nr; i++){
     for(j = 0; j < nc; j++){
       transp[j*nr + i] = matrix[i*nc + j];
