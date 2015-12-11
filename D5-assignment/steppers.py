@@ -81,18 +81,20 @@ def multiple_d_dt(state, M):
         y_force = 0.
 
         while j < nbody:
+
             if j == i:
                 j += 1
+
             else:
                 x = state[j * 4]
                 y = state[j * 4 + 1]
                 mass = M[j]
                 r = ( (x - my_x)**2 + (y - my_y)**2 )**.5
-
                 x_force += G * mass * (x - my_x) / r**3
                 y_force += G * mass * (y - my_y) / r**3
                 j += 1
 
+        # storing results for i-th body
         res[i * 4]     = state[i * 4 + 2]
         res[i * 4 + 1] = state[i * 4 + 3]
         res[i * 4 + 2] = x_force
