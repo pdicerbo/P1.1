@@ -93,7 +93,7 @@ while(i < nstep):
     for k in np.arange(nbody):
         tmp_plot[0, 2 * k] = state[k * 4]
         tmp_plot[0, 2 * k + 1] = state[k * 4 + 1]
-        toplot = np.append(toplot, tmp_plot, axis=0)
+    toplot = np.append(toplot, tmp_plot, axis=0)
 
     x = np.append(x, state[0])
     y = np.append(y, state[1])
@@ -104,6 +104,7 @@ while(i < nstep):
 
 print("\tintegration done!")
 
+print(toplot[:,4], toplot[:,5])
 plt.figure()
 
 for k in range(nbody):
