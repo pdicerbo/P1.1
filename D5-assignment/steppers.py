@@ -57,3 +57,50 @@ def d_dt(state, M):
     ret = np.array([state[2], state[3], - G * M * x / r**3, - G * M * y / r**3])
     
     return ret
+
+def multiple_d_dt(state, M):
+    nbody = len(M)
+    
+    # for each body are needed 4 initial condition
+    if len(state) != nbody * 4:
+        raise ValueError("Wrong initialization")
+
+    res = np.zeros(nbody * 4)
+
+    G = 6.67 * 10**-8 # Gravitational constant in cgs
+    
+    i = 0
+    j = 0
+
+    while i < nbody:
+        my_x = state[i * 4]
+        my_y = state[i * 4 + 1]
+        my_mass = M[i]
+
+        x_force = 0.
+        y_force = 0.
+
+        while j < nbody:
+            if j == i:
+                j += 1
+            else:
+                x = state[j * 4]
+                y = state[j * 4 + 1]
+                mass = M[j]
+                r = ( (x - my_x)**2 + (y - my_y)**2 )**.5
+
+                x_force += G * mass * (x - my_x) / r**3
+                y_force += G * mass * (y - my_y) / r**3
+                j += 1
+
+        res[i * 4]     = state[i * 4 + 2]
+        res[i * 4 + 1] = state[i * 4 + 3]
+        res[i * 4 + 2] = x_force
+        res[i * 4 + 3] = y_force
+        i += 1
+        j = 0
+
+    return res
+        
+
+    
